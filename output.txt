@@ -1,0 +1,15 @@
+Sandy Man is due 2016-09-28
+Perdy Train Stop is due 2016-10-31
+Hofstadter is due 2017-01-30
+Wrath's Grapes is due 2017-05-22
+Big Pile of Sand is due 2017-07-14
+There is at least one copy left of Wrath's Grapes.
+Sandy Man is due tomorrow.
+Perdy Train Stop is due tomorrow.
+Hofstadter is due tomorrow.
+Sandy Man is being returned,
+the late fee is 15.40.
+Hofstadter is being returned,
+the late fee is 3.00.
+Big Pile of Sand is being returned,
+the late fee is 0.0.
