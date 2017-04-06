@@ -1,11 +1,8 @@
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -13,35 +10,24 @@ import java.util.UUID;
  */
 
 public class LibraryCard {
-  private
-    long UID;
-    String name;
-    ArrayList<BookCopy> borrowed = new ArrayList<BookCopy>();
-    PrintWriter writer;
-    BigDecimal fine = new BigDecimal("0.00");
-    boolean testing;
-    //if testing is true, duedates will be random within +/- 6 months
+    public static final int RENEWAL_WEEKS = 2;
+    private long UID;
+    private String name;
+    private ArrayList<BookCopy> borrowed = new ArrayList<BookCopy>();
+    private PrintWriter writer;
 
-  public
-    LibraryCard (PrintWriter writer, String name, boolean testing) {
+    public LibraryCard (PrintWriter writer, String name) {
       UUID id = UUID.randomUUID();
       UID = id.getMostSignificantBits();
       this.writer = writer;
       this.name = name;
-      BigDecimal increase = new BigDecimal("0.10");
-      fine = fine.add(increase);
-      this.testing = testing;
     }
 
     long        getUID() {
-        return this.UID;
+        return UID;
     }
     String      getName() { return name; }
     void        setName(String name) { this.name = name; }
-    BigDecimal  getFine() { return fine; }
-    void        setFine(BigDecimal fine) { this.fine = fine; }
-    boolean     getTesting() { return testing; }
-    void        setTesting(boolean testing) { this.testing = testing; }
     String      getIndexTitle(int i) { return borrowed.get(i).getBook(); }
 
     void printBorrowed() {
@@ -52,19 +38,23 @@ public class LibraryCard {
     }
 
     void borrowBook(BookCopy b) {
+        borrowBook(b, LocalDate.now());
+    }
+
+    void borrowBook(BookCopy b, LocalDate date){
         if (b.isOut()) {
             writer.println("That book ain't here.");
             return;
         }
         borrowed.add(b);
-        b.isBorrowed(this);
+        b.isBorrowed(this, date);
     }
 
     BigDecimal returnBook(int i) {
         BookCopy b = borrowed.get(i);
 
         if(borrowed.remove(b)) {
-            return b.isReturned(this);
+            return b.isReturned();
         } else {
             writer.println("Where did you get this? It certainly isn't yours.\n");
             return BigDecimal.valueOf(0.00);
@@ -72,7 +62,7 @@ public class LibraryCard {
     }
 
     void renewBook(BookCopy b) {
-        b.setDueDate(LocalDate.now().plusWeeks(2));
+        b.setDueDate(LocalDate.now().plusWeeks(RENEWAL_WEEKS));
     }
 
     ArrayList<BookCopy> dueBy(LocalDate date) {

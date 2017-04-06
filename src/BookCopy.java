@@ -6,63 +6,39 @@ import java.util.Random;
 /**
  * Created by The Dark Avenger on 2/7/2017.
  */
-public class BookCopy implements Comparable<BookCopy> {
-  private
-    Book book;
-    LibraryCard borrower;
-    boolean isOut;
-    LocalDate dueDate;
-  public
-    BookCopy(Book book) {
-      this.book = book;
-      borrower = null;
-      isOut = false;
-    }
+public class BookCopy extends LibraryMaterialCopy implements Comparable<BookCopy> {
+	public static final int BORROWING_WEEKS = 3;
+	public static final BigDecimal FINE = new BigDecimal("0.10");
 
-    boolean isOut() { return isOut; }
-    String getBook() {
-      return book.getTitle();
-    }
-    LocalDate getDueDate() { return dueDate; }
-    void setDueDate(LocalDate dueDate) { this.dueDate = dueDate; }
+	private Book book;
 
-    long getBorrower() {
-      if ( isOut() ) {
-        return borrower.getUID();
-      }
-      else {
-        return 0;
-      }
-    }
+	public BookCopy(Book book) {
+		this.book = book;
+	}
 
-    BigDecimal isReturned(LibraryCard c) {
-      borrower = null;
-      isOut = false;
-      BigDecimal multiplicand = new BigDecimal("0.10");
+	String getBook() { return book.getTitle(); }
 
-      if (LocalDate.now().isBefore(dueDate) || LocalDate.now().equals(dueDate))
-        return BigDecimal.valueOf(0.00);
-      long x = ChronoUnit.DAYS.between(dueDate, LocalDate.now());
+	@Override
+	public LibraryMaterial getLibraryMaterial () {
+		return book;
+	}
 
-      return multiplicand.multiply(BigDecimal.valueOf(x));
-    }
+	@Override
+	protected BigDecimal getFinePerDay() {
+		return FINE;
+	}
 
-    void isBorrowed(LibraryCard c) {
-      borrower = c;
-      isOut = true;
-      if(c.testing) {
-        Random random = new Random();
+	@Override
+	protected int getBorrowingWeeks() {
+		return BORROWING_WEEKS;
+	}
 
-        long time = -15778476000L + System.currentTimeMillis() + (Math.abs(random.nextLong()) % (1L*365*24*60*60*1000));
-        dueDate = Instant.ofEpochMilli(time).atZone(ZoneId.systemDefault()).toLocalDate();
-      }
-      else {
-        dueDate = LocalDate.now().plusWeeks(3);
-      }
-    }
+	void setDueDate(LocalDate dueDate) 	{ this.dueDate = dueDate; }
 
-    @Override
-    public int compareTo(BookCopy b) {
-      return dueDate.compareTo(b.getDueDate());
-    }
+
+
+	@Override
+	public int compareTo(BookCopy b) {
+		return dueDate.compareTo(b.getDueDate());
+	}
 }
