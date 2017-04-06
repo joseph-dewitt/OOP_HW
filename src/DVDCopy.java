@@ -23,6 +23,10 @@ public class DVDCopy extends LibraryMaterialCopy {
 	}
 
 	@Override
+	protected String getTitle () { return dvd.getTitle(); }
+
+
+	@Override
 	protected BigDecimal getFinePerDay() {
 		return FINE;
 	}

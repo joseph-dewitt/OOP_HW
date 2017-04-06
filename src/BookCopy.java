@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * Created by The Dark Avenger on 2/7/2017.
  */
-public class BookCopy extends LibraryMaterialCopy implements Comparable<BookCopy> {
+public class BookCopy extends LibraryMaterialCopy{
 	public static final int BORROWING_WEEKS = 3;
 	public static final BigDecimal FINE = new BigDecimal("0.10");
 
@@ -15,8 +15,6 @@ public class BookCopy extends LibraryMaterialCopy implements Comparable<BookCopy
 	public BookCopy(Book book) {
 		this.book = book;
 	}
-
-	String getBook() { return book.getTitle(); }
 
 	void print() {
 		super.print();
@@ -29,6 +27,9 @@ public class BookCopy extends LibraryMaterialCopy implements Comparable<BookCopy
 	}
 
 	@Override
+	protected String getTitle () { return book.getTitle(); }
+
+	@Override
 	protected BigDecimal getFinePerDay() {
 		return FINE;
 	}
@@ -38,12 +39,9 @@ public class BookCopy extends LibraryMaterialCopy implements Comparable<BookCopy
 		return BORROWING_WEEKS;
 	}
 
-	void setDueDate(LocalDate dueDate) 	{ this.dueDate = dueDate; }
 
 
 
-	@Override
-	public int compareTo(BookCopy b) {
-		return dueDate.compareTo(b.getDueDate());
-	}
+
+
 }

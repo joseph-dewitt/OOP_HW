@@ -5,7 +5,7 @@ import java.time.temporal.ChronoUnit;
 /**
  * Created by The Dark Avenger on 4/5/2017.
  */
-public abstract class LibraryMaterialCopy {
+public abstract class LibraryMaterialCopy  implements Comparable<LibraryMaterialCopy> {
 
 
 	protected LibraryCard borrower;
@@ -14,6 +14,7 @@ public abstract class LibraryMaterialCopy {
 	public abstract LibraryMaterial getLibraryMaterial();
 	protected abstract BigDecimal getFinePerDay();
 	protected abstract int getBorrowingWeeks();
+	protected abstract String getTitle();
 
 	LibraryMaterialCopy() {
 		isOut = false;
@@ -56,5 +57,12 @@ public abstract class LibraryMaterialCopy {
 		borrower = c;
 		isOut = true;
 		dueDate = date.plusWeeks(getBorrowingWeeks());
+	}
+
+	void setDueDate(LocalDate dueDate) 	{ this.dueDate = dueDate; }
+
+	@Override
+	public int compareTo(LibraryMaterialCopy b) {
+		return dueDate.compareTo(b.getDueDate());
 	}
 }

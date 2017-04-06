@@ -13,7 +13,7 @@ public class LibraryCard {
     public static final int RENEWAL_WEEKS = 2;
     private long UID;
     private String name;
-    private ArrayList<BookCopy> borrowed = new ArrayList<BookCopy>();
+    private ArrayList<LibraryMaterialCopy> borrowed = new ArrayList<LibraryMaterialCopy>();
     private PrintWriter writer;
 
     public LibraryCard (PrintWriter writer, String name) {
@@ -28,12 +28,12 @@ public class LibraryCard {
     }
     String      getName() { return name; }
     void        setName(String name) { this.name = name; }
-    String      getIndexTitle(int i) { return borrowed.get(i).getBook(); }
+    String      getIndexTitle(int i) { return borrowed.get(i).getLibraryMaterial().toString(); }
 
     void printBorrowed() {
         Collections.sort(borrowed);
         for (int i = 0; i < borrowed.size(); i++) {
-            writer.println(borrowed.get(i).getBook() + " is due " + borrowed.get(i).getDueDate());
+            writer.println(borrowed.get(i).getTitle() + " is due " + borrowed.get(i).getDueDate());
         }
     }
 
@@ -52,7 +52,7 @@ public class LibraryCard {
     }
 
     BigDecimal returnBook(int i) {
-        BookCopy b = borrowed.get(i);
+        LibraryMaterialCopy b = borrowed.get(i);
 
         if(borrowed.remove(b)) {
             return b.isReturned();
@@ -62,19 +62,19 @@ public class LibraryCard {
         }
     }
 
-    void renewBook(BookCopy b) {
+    void renewBook(LibraryMaterialCopy b) {
         b.setDueDate(LocalDate.now().plusWeeks(RENEWAL_WEEKS));
     }
 
-    ArrayList<BookCopy> dueBy(LocalDate date) {
-        ArrayList<BookCopy> dueBooks = new ArrayList<BookCopy>();
+    ArrayList<LibraryMaterialCopy> dueBy(LocalDate date) {
+        ArrayList<LibraryMaterialCopy> dueMaterial = new ArrayList<LibraryMaterialCopy>();
 
-        for(BookCopy b : borrowed) {
+        for(LibraryMaterialCopy b : borrowed) {
             if(b.getDueDate().isBefore(date)) {
-                dueBooks.add(b);
+                dueMaterial.add(b);
             }
         }
-        return dueBooks;
+        return dueMaterial;
     }
 
 
