@@ -16,4 +16,9 @@ public class LibraryMaterial {
 	String getTitle() 	{ return title; }
 
 	long getIsbn() 		{ return ISBN; }
+
+	void print() {
+		System.out.println("Title: " + title);
+		System.out.println("ISBN: " + ISBN);
+	}
 }

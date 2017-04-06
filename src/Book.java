@@ -12,4 +12,9 @@ public class Book extends LibraryMaterial {
 	}
 
 	String getAuthor() 	{ return this.author; }
+
+	void print() {
+		super.print();
+		System.out.println("Author : " + author);
+	}
 }

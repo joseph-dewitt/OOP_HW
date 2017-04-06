@@ -10,4 +10,9 @@ public class DVD extends LibraryMaterial {
 	}
 
 	String getActor() { return actor; }
+
+	void print() {
+		super.print();
+		System.out.println("Lead actor: " + actor);
+	}
 }

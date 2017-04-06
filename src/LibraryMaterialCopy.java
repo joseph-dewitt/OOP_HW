@@ -23,6 +23,11 @@ public abstract class LibraryMaterialCopy {
 	boolean isOut() { return isOut;	}
 	LocalDate getDueDate() { return dueDate; }
 
+	void print() {
+		System.out.println("Borrower ID " + borrower.getUID());
+		System.out.println("Borrow name " + borrower.getName());
+		System.out.println(" Due by " + getDueDate());
+	}
 
 	long getBorrower() {
 		if (isOut()) {

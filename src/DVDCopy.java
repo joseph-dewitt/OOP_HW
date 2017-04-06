@@ -6,14 +6,15 @@ import java.math.BigDecimal;
 public class DVDCopy extends LibraryMaterialCopy {
 	public static final int BORROWING_WEEKS = 2;
 	public static final BigDecimal FINE = new BigDecimal("1.00");
-
-
-
 	private DVD dvd;
-
 
 	public DVDCopy(DVD dvd) {
 		this.dvd = dvd;
+	}
+
+	void print() {
+		super.print();
+		dvd.print();
 	}
 
 	@Override

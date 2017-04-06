@@ -18,6 +18,11 @@ public class BookCopy extends LibraryMaterialCopy implements Comparable<BookCopy
 
 	String getBook() { return book.getTitle(); }
 
+	void print() {
+		super.print();
+		book.print();
+	}
+
 	@Override
 	public LibraryMaterial getLibraryMaterial () {
 		return book;

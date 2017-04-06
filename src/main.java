@@ -34,7 +34,7 @@ public class main {
 		}
 
 		for (int i = 0; i < bookNum; i += 2) {
-			card.borrowBook(library.get(i));
+			card.borrowBook(library.get(i), LocalDate.now().minusWeeks(7-i));
 		}
 
 		card.printBorrowed();
