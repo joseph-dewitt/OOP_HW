@@ -45,10 +45,10 @@ public class main {
 			writer.println("There is at least one copy left of Wrath's Grapes.");
 		}
 
-		ArrayList<BookCopy> dueTomorrow = new ArrayList<BookCopy>();
+		ArrayList<LibraryMaterialCopy> dueTomorrow = new ArrayList<LibraryMaterialCopy>();
 		dueTomorrow = card.dueBy(LocalDate.now().plusDays(1));
-		for (BookCopy b : dueTomorrow) {
-			writer.println(b.getBook() + " is due tomorrow.");
+		for (LibraryMaterialCopy b : dueTomorrow) {
+			writer.println(b.getTitle() + " is due tomorrow.");
 		}
 
 		for (int i = 0; i < 3; i++) {

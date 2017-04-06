@@ -28,7 +28,7 @@ public class LibraryCard {
     }
     String      getName() { return name; }
     void        setName(String name) { this.name = name; }
-    String      getIndexTitle(int i) { return borrowed.get(i).getLibraryMaterial().toString(); }
+    String      getIndexTitle(int i) { return borrowed.get(i).getTitle(); }
 
     void printBorrowed() {
         Collections.sort(borrowed);
