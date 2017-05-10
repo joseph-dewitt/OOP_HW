@@ -4,7 +4,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Random;
 
 /**
- * Created by The Dark Avenger on 2/7/2017.
+ * Created by Joseph DeWitt on 2/7/2017.
  */
 public class BookCopy extends LibraryMaterialCopy{
 	public static final int BORROWING_WEEKS = 3;

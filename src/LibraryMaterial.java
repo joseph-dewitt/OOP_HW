@@ -1,7 +1,7 @@
 import java.util.UUID;
 
 /**
- * Created by The Dark Avenger on 4/5/2017.
+ * Created by Joseph DeWitt on 4/5/2017.
  */
 public class LibraryMaterial {
 	protected String title;
