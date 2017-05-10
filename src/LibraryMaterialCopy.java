@@ -15,6 +15,8 @@ public abstract class LibraryMaterialCopy  implements Comparable<LibraryMaterial
 	protected abstract BigDecimal getFinePerDay();
 	protected abstract int getBorrowingWeeks();
 	protected abstract String getTitle();
+	protected abstract boolean checkTitle(String s);
+
 
 	LibraryMaterialCopy() {
 		isOut = false;

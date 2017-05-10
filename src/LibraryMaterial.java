@@ -1,4 +1,5 @@
 import java.util.UUID;
+import java.lang.Math;
 
 /**
  * Created by Joseph DeWitt on 4/5/2017.
@@ -20,5 +21,17 @@ public class LibraryMaterial {
 	void print() {
 		System.out.println("Title: " + title);
 		System.out.println("ISBN: " + ISBN);
+	}
+
+	boolean checkTitle(String s) {
+		if (s.equals(this.title))
+			return true;
+		else
+			return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return (int)(abs(getIsbn() / pow(10,16)));
 	}
 }

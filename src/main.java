@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class main {
 
 	public static void main(String[] args) throws IOException {
+		Catalog cat = new Catalog();
 		File file = new File("output.txt");
 		FileWriter output = new FileWriter(file);
 		PrintWriter writer = new PrintWriter(output);
@@ -25,12 +26,16 @@ public class main {
 		int bookNum = Integer.parseInt(reader.readLine());
 
 		for (int i = 0; i < bookNum; i++) {
+			ArrayList<BookCopy> thing = new ArrayList<BookCopy>();
+
 			title = reader.readLine();
 			author = reader.readLine();
 
 			titles.add(new Book(title, author));
 			library.add(new BookCopy(titles.get(i)));
 			library.add(new BookCopy(titles.get(i)));
+
+			cat.put(titles[i], thing);
 		}
 
 		for (int i = 0; i < bookNum; i += 2) {
@@ -55,6 +60,8 @@ public class main {
 			writer.println(card.getIndexTitle(i) + " is being returned,");
 			writer.println("the late fee is " + card.returnBook(i) + ".");
 		}
+
+		writer.println((int)(Math.abs(card.getUID()) / Math.pow(10,16)));
 
 		output.flush();
 		output.close();

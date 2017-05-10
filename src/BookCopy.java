@@ -27,7 +27,9 @@ public class BookCopy extends LibraryMaterialCopy{
 	}
 
 	@Override
-	protected String getTitle () { return book.getTitle(); }
+	protected String getTitle () {
+		return book.getTitle();
+	}
 
 	@Override
 	protected BigDecimal getFinePerDay() {
@@ -39,6 +41,10 @@ public class BookCopy extends LibraryMaterialCopy{
 		return BORROWING_WEEKS;
 	}
 
+	@Override
+	protected boolean checkTitle(String s) {
+		return s.equals(this.getTitle());			
+	}
 
 
 

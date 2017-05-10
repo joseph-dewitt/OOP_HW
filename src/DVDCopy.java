@@ -36,4 +36,9 @@ public class DVDCopy extends LibraryMaterialCopy {
 		return BORROWING_WEEKS;
 	}
 
+	@Override
+	protected boolean checkTitle(String s) {
+		return s.equals(this.getTitle());
+	}
+
 }
