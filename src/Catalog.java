@@ -19,7 +19,7 @@ public class Catalog {
 
       title.print();
       System.out.println(map.containsKey(title));
-      System.out.println(map.get(title).getClass());
+      System.out.println(map.get(title).get(0).getClass());
       return map.get(title).get(0);
     }
 
