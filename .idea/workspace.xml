@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3130db09-a3db-4a7a-b3d1-21bd02c47409" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OOP_HW/Catalog.class" afterPath="$PROJECT_DIR$/out/production/OOP_HW/Catalog.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OOP_HW/LibraryCard.class" afterPath="$PROJECT_DIR$/out/production/OOP_HW/LibraryCard.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OOP_HW/LibraryCardManager.class" afterPath="$PROJECT_DIR$/out/production/OOP_HW/LibraryCardManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OOP_HW/main.class" afterPath="$PROJECT_DIR$/out/production/OOP_HW/main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output.txt" afterPath="$PROJECT_DIR$/output.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Catalog.java" afterPath="$PROJECT_DIR$/src/Catalog.java" />
@@ -792,7 +796,7 @@
       <workItem from="1491478689637" duration="207000" />
       <workItem from="1494464833455" duration="970000" />
       <workItem from="1494471763337" duration="4953000" />
-      <workItem from="1494498522328" duration="7112000" />
+      <workItem from="1494498522328" duration="7144000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1491420258104</created>
@@ -812,7 +816,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62248000" />
+    <option name="totallyTimeSpent" value="62280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
