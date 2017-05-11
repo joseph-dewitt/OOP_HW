@@ -26,6 +26,10 @@ public class Catalog {
 		return map.get(title).get(0);
     }
 
+	public LibraryMaterialCopy get(String s) {
+		return get(findTitle(s));
+	}
+
     public LibraryMaterial findTitle(String s) {
         for (LibraryMaterial key: map.keySet()) {
             if(s.equals(key.getTitle()))
@@ -34,6 +38,7 @@ public class Catalog {
         return null;
     }
 
+
 	public ArrayList<LibraryMaterialCopy> findAvailable(LibraryMaterial s) {
 		ArrayList<LibraryMaterialCopy> temp = new ArrayList<LibraryMaterialCopy>();
 		for(LibraryMaterialCopy t: map.get(s)) {
@@ -41,6 +46,5 @@ public class Catalog {
 		}
 		return temp;
 	}
-
 
 }
