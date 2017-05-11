@@ -26,11 +26,10 @@ public class main {
 		int bookNum = Integer.parseInt(reader.readLine());
 
 		for (int i = 0; i < bookNum; i++) {
-			ArrayList<BookCopy> thing = new ArrayList<BookCopy>();
+			ArrayList<LibraryMaterialCopy> thing = new ArrayList<LibraryMaterialCopy>();
 
 			title = reader.readLine();
 			author = reader.readLine();
-			Book temp = new Book(title,author);
 			titles.add(new Book(title, author));
 			thing.add(new BookCopy(titles.get(i)));
 			thing.add(new BookCopy(titles.get(i)));
@@ -38,7 +37,7 @@ public class main {
 			library.add(new BookCopy(titles.get(i)));
 			library.add(new BookCopy(titles.get(i)));
 
-			cat.put(temp, thing);
+			cat.put(titles.get(i), thing);
 		}
 
 		for (int i = 0; i < bookNum; i += 2) {
@@ -65,6 +64,8 @@ public class main {
 		}
 
 		writer.println((int)(Math.abs(card.getUID()) / Math.pow(10,16)));
+
+		cat.get(titles.get(0)).print();
 
 		output.flush();
 		output.close();

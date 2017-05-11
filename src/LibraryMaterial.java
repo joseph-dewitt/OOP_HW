@@ -1,5 +1,4 @@
 import java.util.UUID;
-//import java.lang.math;
 
 /**
  * Created by Joseph DeWitt on 4/5/2017.
@@ -32,6 +31,6 @@ public class LibraryMaterial {
 
 	@Override
 	public int hashCode() {
-		return (int)(Math.abs(getIsbn() / Math.pow(10,16)));
+		return (int)(Math.abs(getIsbn() / Math.pow(10,14)));
 	}
 }

@@ -5,17 +5,21 @@ import java.util.HashMap;
  * Created by Joseph DeWitt on 4/5/2017.
  */
 public class Catalog {
-    HashMap<LibraryMaterial, ArrayList<BookCopy>> map;
+    HashMap<LibraryMaterial, ArrayList<LibraryMaterialCopy>> map;
 
     public Catalog () {
-      map = new HashMap<LibraryMaterial, ArrayList<BookCopy>>();
+      map = new HashMap<LibraryMaterial, ArrayList<LibraryMaterialCopy>>();
     }
 
-    public void put(LibraryMaterial title, ArrayList<BookCopy> copies) {
+    public void put(LibraryMaterial title, ArrayList<LibraryMaterialCopy> copies) {
       map.put(title, copies);
     }
 
-    public BookCopy get(LibraryMaterial title) {
+    public LibraryMaterialCopy get(LibraryMaterial title) {
+
+      title.print();
+      System.out.println(map.containsKey(title));
+      System.out.println(map.get(title).getClass());
       return map.get(title).get(0);
     }
 

@@ -27,6 +27,7 @@ public abstract class LibraryMaterialCopy  implements Comparable<LibraryMaterial
 	LocalDate getDueDate() { return dueDate; }
 
 	void print() {
+		System.out.println(getTitle());
 		System.out.println("Borrower ID " + borrower.getUID());
 		System.out.println("Borrow name " + borrower.getName());
 		System.out.println(" Due by " + getDueDate());
