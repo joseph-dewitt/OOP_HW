@@ -30,12 +30,15 @@ public class main {
 
 			title = reader.readLine();
 			author = reader.readLine();
-
+			Book temp = new Book(title,author);
 			titles.add(new Book(title, author));
+			thing.add(new BookCopy(titles.get(i)));
+			thing.add(new BookCopy(titles.get(i)));
+
 			library.add(new BookCopy(titles.get(i)));
 			library.add(new BookCopy(titles.get(i)));
 
-			cat.put(titles[i], thing);
+			cat.put(temp, thing);
 		}
 
 		for (int i = 0; i < bookNum; i += 2) {

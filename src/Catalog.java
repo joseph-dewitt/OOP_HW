@@ -1,21 +1,22 @@
-import java.util.HashMap
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Joseph DeWitt on 4/5/2017.
  */
 public class Catalog {
-    HashMap<LibraryMaterial, LibraryMaterialCopy[]> map;
+    HashMap<LibraryMaterial, ArrayList<BookCopy>> map;
 
     public Catalog () {
-      map = new HashMap<LibraryMaterial, LibraryMaterialCopy[]>();
+      map = new HashMap<LibraryMaterial, ArrayList<BookCopy>>();
     }
 
-    public put(LibraryMaterial title, LibraryMaterialCopy[] copies) {
+    public void put(LibraryMaterial title, ArrayList<BookCopy> copies) {
       map.put(title, copies);
     }
 
-    public get(LibraryMaterial title) {
-      return map.get(title);
+    public BookCopy get(LibraryMaterial title) {
+      return map.get(title).get(0);
     }
 
 }
