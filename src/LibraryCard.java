@@ -18,7 +18,7 @@ public class LibraryCard {
 
     public LibraryCard (PrintWriter writer, String name) {
       UUID id = UUID.randomUUID();
-      UID = id.getMostSignificantBits();
+      UID = Math.abs(id.getMostSignificantBits());
       this.writer = writer;
       this.name = name;
     }
@@ -62,7 +62,7 @@ public class LibraryCard {
         }
     }
 
-    void renewBook(LibraryMaterialCopy b) {
+    void renewMaterial(LibraryMaterialCopy b) {
         b.setDueDate(LocalDate.now().plusWeeks(RENEWAL_WEEKS));
     }
 
@@ -76,6 +76,20 @@ public class LibraryCard {
         }
         return dueMaterial;
     }
+
+    public LibraryMaterialCopy isCheckedOut(String s) {
+		for(LibraryMaterialCopy b: borrowed) {
+			if(s.equals(b.getTitle())) {
+				return b;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public int hashCode() {
+		return (int)(Math.abs(getUID() / Math.pow(10,14)));
+	}
 
 
 }

@@ -10,7 +10,7 @@ public class LibraryMaterial {
 	public LibraryMaterial(String title) {
 		this.title = title;
 		UUID id = UUID.randomUUID();
-		this.ISBN = id.getMostSignificantBits();
+		this.ISBN = Math.abs(id.getMostSignificantBits());
 	}
 
 	String getTitle() 	{ return title; }

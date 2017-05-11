@@ -6,21 +6,41 @@ import java.util.HashMap;
  */
 public class Catalog {
     HashMap<LibraryMaterial, ArrayList<LibraryMaterialCopy>> map;
+	private ArrayList<LibraryMaterial> keys = new ArrayList<LibraryMaterial>();
 
     public Catalog () {
       map = new HashMap<LibraryMaterial, ArrayList<LibraryMaterialCopy>>();
     }
 
+    public ArrayList<LibraryMaterial> getKeys() { return keys; }
+
     public void put(LibraryMaterial title, ArrayList<LibraryMaterialCopy> copies) {
-      map.put(title, copies);
+      	map.put(title, copies);
+		keys.add(title);
     }
 
     public LibraryMaterialCopy get(LibraryMaterial title) {
-
-      title.print();
-      System.out.println(map.containsKey(title));
-      System.out.println(map.get(title).get(0).getClass());
-      return map.get(title).get(0);
+		title.print();
+		System.out.println(map.containsKey(title));
+		System.out.println(map.get(title).get(0).getClass());
+		return map.get(title).get(0);
     }
+
+    public LibraryMaterial findTitle(String s) {
+        for (LibraryMaterial key: map.keySet()) {
+            if(s.equals(key.getTitle()))
+                return key;
+        }
+        return null;
+    }
+
+	public ArrayList<LibraryMaterialCopy> findAvailable(LibraryMaterial s) {
+		ArrayList<LibraryMaterialCopy> temp = new ArrayList<LibraryMaterialCopy>();
+		for(LibraryMaterialCopy t: map.get(s)) {
+			temp.add(t);
+		}
+		return temp;
+	}
+
 
 }

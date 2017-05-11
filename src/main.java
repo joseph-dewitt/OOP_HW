@@ -64,6 +64,7 @@ public class main {
 		}
 
 		writer.println((int)(Math.abs(card.getUID()) / Math.pow(10,16)));
+		card.isCheckedOut("Sandy Man").print();
 
 		cat.get(titles.get(0)).print();
 
